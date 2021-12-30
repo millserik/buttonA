@@ -3,6 +3,7 @@ function setup() {
   angle1 = 0;
   g = 0;
   a = 1;
+  alphaV = [255,255,255,255,255,255,255,255];
 }
 
 function draw() {
@@ -14,21 +15,35 @@ function draw() {
   fill(10)
   noStroke()
   //up
+  fill(10,alphaV[0])
   ellipse(120,60,40)
+  
   //down
+  fill(10,alphaV[1])
   ellipse(120,130,40)
+  
   //left
+  fill(10,alphaV[2])
   ellipse(80,95,40)
+  
   //right
+  fill(10,alphaV[3])
   ellipse(160,95,40)
   
   //x
+  fill(10,alphaV[4])
   ellipse(360,60,40)
+  
   //b
+  fill(10,alphaV[5])
   ellipse(360,130,40)
+  
   //y
+  fill(10,alphaV[6])
   ellipse(320,95,40)
+  
   //a
+  fill(10,alphaV[7])
   ellipse(400,95,40)
   pop()
   
@@ -101,8 +116,40 @@ function draw() {
 }
 
 function mousePressed(){
+  //up button
+  if(dist(mouseX,mouseY,120,60)<20){
+    alphaV[0] = 150;
+  }
+  //down button
+  if(dist(mouseX,mouseY,120,130)<20){
+    alphaV[1] = 150;
+  }
+  //left button
+  if(dist(mouseX,mouseY,80,95)<20){
+    alphaV[2] = 150;
+  }
+  //right button
+  if(dist(mouseX,mouseY,160,95)<20){
+    alphaV[3] = 150;
+  }
+  //x button
+  if(dist(mouseX,mouseY,360,60)<20){
+    alphaV[4] = 150;
+  }
+  //b button
+  if(dist(mouseX,mouseY,360,130)<20){
+    alphaV[5] = 150;
+  }
+  
+  //y button
+  if(dist(mouseX,mouseY,320,95)<20){
+    alphaV[6] = 150;
+  }
+  
+  //a button
   if(dist(mouseX,mouseY,400,95)<20){
     g = 1;
+    alphaV[7] = 150;
   }
   
   
@@ -110,4 +157,6 @@ function mousePressed(){
 
 function mouseReleased(){
   g = 0;
+  alphaV = [255,255,255,255,255,255,255,255];
+  
 }
